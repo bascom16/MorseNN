@@ -1,4 +1,5 @@
 import numpy as np
+import torch
 
 from numpy import load
 
@@ -26,6 +27,13 @@ if debug:
 
     print("xtest\n", xtest, xtest.shape)
     print("ytest\n", ytest, ytest.shape)
+
+xtrain_tensor = torch.from_numpy(xtrain).float()
+ytrain_tensor = torch.from_numpy(ytrain).float()
+xval_tensor = torch.from_numpy(xval).float()
+yval_tensor = torch.from_numpy(yval).float()
+xtest_tensor = torch.from_numpy(xtest).float()
+ytest_tensor = torch.from_numpy(ytest).float()
 
 
 
