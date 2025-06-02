@@ -1,8 +1,5 @@
-import torch
 import torch.nn as nn
 import torch.optim as optim
-import numpy as np
-import matplotlib.pyplot as plt
 
 class MorseNet(nn.Module):
     def __init__(self):
@@ -18,3 +15,10 @@ class MorseNet(nn.Module):
         x = self.fc2(x)
         x = self.softmax(x)
         return x
+    
+# Instantiate the model
+model = MorseNet()
+print(model)
+
+criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001) # lr is the learning rate
