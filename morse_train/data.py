@@ -2,6 +2,7 @@ import numpy as np
 import torch
 
 from numpy import load
+from torch.utils.data import TensorDataset, DataLoader
 
 data = load('morse-dataset/baseline.npz')
 lst = data.files
@@ -35,5 +36,7 @@ yval_tensor = torch.from_numpy(yval).float()
 xtest_tensor = torch.from_numpy(xtest).float()
 ytest_tensor = torch.from_numpy(ytest).float()
 
-
-
+# Create dataset and dataloader
+batch_size = 32  # Set your desired batch size
+train_dataset = TensorDataset(xtrain_tensor, ytrain_tensor)
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
